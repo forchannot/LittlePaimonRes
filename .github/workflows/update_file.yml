@@ -2,10 +2,10 @@ name: Update Files
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'fonts/**'
-      - 'LittlePaimon/**'
+      - "fonts/**"
+      - "LittlePaimon/**"
 
   workflow_dispatch:
 
@@ -26,13 +26,11 @@ jobs:
         run: |
           python generate_res_list.py
 
-
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           author_name: github-actions[bot]
           author_email: github-actions[bot]@users.noreply.github.com
-          message: ':wrench: 自动更新资源列表'
+          message: ":wrench: 自动更新资源列表"
           add: |
             'resources_list.json'
-            'resources.zip'
