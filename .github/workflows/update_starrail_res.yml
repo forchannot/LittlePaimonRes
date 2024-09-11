@@ -37,4 +37,29 @@ jobs:
           author_name: github-actions[bot]
           author_email: github-actions[bot]@users.noreply.github.com
           message: ":wrench: 自动更新星铁资源"
+          remove: |
+              - 'resources.zip'
+              - 'star_rail.zip'
           add: .
+      
+      - uses: dev-drprasad/delete-tag-and-release@v1.1
+        with:
+          tag_name: Resources-V1.0
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          delete_release: true
+
+      - name: Tag Repo
+        uses: richardsimko/update-tag@v1
+        with:
+          tag_name: Resources-V1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Alpha
+        uses: softprops/action-gh-release@v2
+        if: ${{  success() }}
+        with:
+          tag_name: Resources-V1.0
+          files: |
+            - 'resources.zip'
+            - 'star_rail.zip'
