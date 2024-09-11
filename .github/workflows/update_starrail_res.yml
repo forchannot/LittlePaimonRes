@@ -58,5 +58,5 @@ jobs:
         with:
           tag_name: Resources-V1.0
           files: |
-            - resources.zip
-            - star_rail.zip
+            resources.zip
+            star_rail.zip
