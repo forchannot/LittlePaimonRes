@@ -1,15 +1,16 @@
-name: Update Star Rail Resources
+name: Update Files
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - "LittlePaimon/star_rail/**"
+      - "fonts/**"
+      - "LittlePaimon/**"
 
 jobs:
   update:
-    name: Update Star Rail Resources
+    name: Update Files
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -31,7 +32,7 @@ jobs:
         run: |
           python update_starrail_res.py
 
-      - name: Update Files
+      - name: Update all files
         run: |
           python generate_res_list.py
 
@@ -40,7 +41,7 @@ jobs:
         with:
           author_name: github-actions[bot]
           author_email: github-actions[bot]@users.noreply.github.com
-          message: ":wrench: 自动更新星铁资源"
+          message: ":wrench: 自动更新资源列表"
           add: .
 
       - uses: dev-drprasad/delete-tag-and-release@v1.1
