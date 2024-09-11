@@ -38,8 +38,8 @@ jobs:
           author_email: github-actions[bot]@users.noreply.github.com
           message: ":wrench: 自动更新星铁资源"
           remove: |
-              - 'resources.zip'
-              - 'star_rail.zip'
+              - './resources.zip'
+              - './star_rail.zip'
               - '--cached'
           add: .
       
