@@ -43,6 +43,11 @@ jobs:
           message: ":wrench: 自动更新星铁资源"
           add: .
 
+      - uses: dev-drprasad/delete-tag-and-release@v1.1
+        with:
+          tag_name: Resources-V1.0
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Tag Repo
         uses: richardsimko/update-tag@v1
         with:
@@ -55,7 +60,6 @@ jobs:
         if: ${{  success() }}
         with:
           tag_name: Resources-V1.0
-          append_body: true
           files: |
             resources.zip
             star_rail.zip
