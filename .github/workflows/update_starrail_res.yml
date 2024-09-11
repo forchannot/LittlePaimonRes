@@ -60,6 +60,7 @@ jobs:
         if: ${{  success() }}
         with:
           tag_name: Resources-V1.0
+          append_body: true
           files: |
             resources.zip
             star_rail.zip
