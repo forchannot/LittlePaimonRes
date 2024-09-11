@@ -52,11 +52,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload Alpha
+      - name: Upload Resources
         uses: softprops/action-gh-release@v2
         if: ${{  success() }}
         with:
           tag_name: Resources-V1.0
           files: |
-            - 'resources.zip'
-            - 'star_rail.zip'
+            - resources.zip
+            - star_rail.zip
